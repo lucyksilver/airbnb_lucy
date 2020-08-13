@@ -1,0 +1,14 @@
+<%= @flat.name %>
+<p><%= @flat.address %></p>
+
+User is: <%= @flat.user.email %>
+
+<%= link_to 'back', flats_path %><br>
+
+<% if @flat.user == current_user %>
+<%= link_to "edit #{ @flat.name}", edit_flat_path(@flat) %>
+<%= link_to "delete #{ @flat.name}",  flat_path(@flat), method: :delete%>
+<% else %>
+<%= link_to "Book #{@flat.name}", new_flat_booking_path(@flat)  %>
+
+<% end %>

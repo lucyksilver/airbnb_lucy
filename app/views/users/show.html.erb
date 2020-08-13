@@ -1,0 +1,14 @@
+<h1><%= @user.email %></h1>
+
+<% @bookings.each do |b| %>
+<%= b.flat.name %>
+<br>
+Your message <%= b.message %>
+<% end %>
+
+<h1>Your flats</h1>
+<% @user.flats.each do |f|  %>
+<%= f.name %>
+<% end %>
+
+<%= link_to 'new flat', new_flat_path %>

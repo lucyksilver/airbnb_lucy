@@ -1,0 +1,20 @@
+<%= form_tag flats_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a flat"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<ul>
+<% @flats.each do |flat| %>
+<li>
+<%= link_to flat.name, flat_path(flat) %></li>
+<% end %>
+</ul>
+
+
+  <% if params[:query] %>
+  <%= link_to 'back to all flats', flats_path %>
+  <% end %>
